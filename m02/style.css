@@ -69,9 +69,9 @@ p.pengumuman {
    itu lewat var(--warna-aksen) di aturan lain pada file ini — bukan cuma
    dideklarasikan tanpa pernah dipakai. */
    :root{
-      --warna-aksen: #2c6e49;
+      --warna-aksen: #def1e6;
       --warna-background: #c86666;
-      --warna-text: #ffffff;
+      --warna-text: #5f1717;
    }
 
 
@@ -81,8 +81,8 @@ p.pengumuman {
    ubah nilai variabelnya di dalam blok @media ini. */
    @media (prefers-color-scheme: dark){
       :root {
-        --warna-aksen: #8fbc8f;
-        --warna-background: #121212;
+        --warna-aksen: #547454;
+        --warna-background: #383232;
         --warna-text: #0c291d;
     }
    }
