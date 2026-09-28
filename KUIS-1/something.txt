@@ -1,0 +1,257 @@
+# Daftar Kode Materi HTML & CSS
+
+## 1. Kerangka dasar HTML
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Beranda</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  ...
+</body>
+</html>
+```
+
+## 2. Meta dan link di `<head>`
+
+```html
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Deskripsi halaman">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:title" content="Judul Website">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="style.css">
+<title>Judul</title>
+```
+
+Materi juga menyebut Open Graph secara umum. Tag tambahan yang biasa dipasang bersama `og:title`:
+
+```html
+<meta property="og:description" content="Deskripsi singkat">
+<meta property="og:image" content="gambar.jpg">
+<meta property="og:url" content="https://contoh.com">
+```
+
+## 3. Teks, tautan, dan gambar
+
+```html
+<h1>Judul Utama</h1>
+<h2>Sub-judul</h2>
+<h3>Sub-sub judul</h3>
+<h4>...</h4> <h5>...</h5> <h6>...</h6>
+
+<p>Teks paragraf</p>
+
+<a href="halaman.html">Tautan biasa</a>
+<a href="URL" target="_blank" rel="noopener">Tautan tab baru</a>
+<a href="#bagian">Lompat ke bagian</a>
+<section id="bagian">...</section>
+
+<img src="foto.jpg" alt="Deskripsi gambar">
+<br>
+<input type="text">
+```
+
+## 4. Daftar
+
+```html
+<!-- Tanpa urutan -->
+<ul>
+  <li>Item</li>
+</ul>
+
+<!-- Berurutan -->
+<ol>
+  <li>Langkah 1</li>
+  <li>Langkah 2</li>
+</ol>
+<ol start="5"> ... </ol>
+<ol reversed> ... </ol>
+<ol type="A"> ... </ol>
+
+<!-- Daftar istilah -->
+<dl>
+  <dt>Istilah</dt>
+  <dd>Deskripsi</dd>
+</dl>
+```
+
+## 5. Tabel
+
+```html
+<table>
+  <caption>Judul Tabel</caption>
+  <thead>
+    <tr>
+      <th scope="col">Judul Kolom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Judul Baris</th>
+      <td>Isi</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Footer</td>
+    </tr>
+  </tfoot>
+</table>
+```
+
+## 6. Pengelompokan dan semantik
+
+```html
+<div class="box">...</div>
+<p>Teks <span class="highlight">khusus</span> di tengah</p>
+
+<header>...</header>
+<nav>...</nav>
+<main>...</main>
+<footer>...</footer>
+
+<article>...</article>
+<section>...</section>
+<aside>...</aside>
+
+<details>
+  <summary>Klik</summary>
+  <p>Isi</p>
+</details>
+
+<!-- Catatan pengembang -->
+```
+
+## 7. Selector, box model, dan display
+
+```css
+/* Selector */
+* { margin: 0; }
+p { color: black; }
+.kelas { ... }
+#id { ... }
+[type="text"] { ... }
+h1, h2 { ... }              /* pengelompokan */
+parent > child { ... }      /* anak langsung */
+
+/* Box model */
+padding: 10px;
+border: 1px solid black;
+margin: 20px;
+box-sizing: border-box;
+
+/* Display */
+display: block;
+display: inline;
+display: inline-block;
+```
+
+Kode yang sering dipasang bersama `box-sizing`:
+
+```css
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+```
+
+## 8. Satuan ukuran
+
+```css
+font-size: 16px;
+font-size: 1rem;
+font-size: 1.5em;
+width: 50%;
+width: 100vw;
+height: 100vh;
+```
+
+## 9. Variabel CSS
+
+```css
+:root {
+  --utama: #3f7a4f;
+}
+
+button {
+  background: var(--utama);
+}
+h1 {
+  color: var(--utama);
+}
+```
+
+## 10. Flexbox
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;            /* row | column */
+  justify-content: space-between; /* center | flex-start | flex-end | space-around | space-evenly */
+  align-items: center;            /* stretch | flex-start | flex-end */
+}
+
+.item {
+  flex: 1;
+  /* atau */
+  flex: 0 0 250px;                /* grow shrink basis */
+}
+```
+
+Tiga properti `flex` juga bisa ditulis terpisah:
+
+```css
+flex-grow: 1;
+flex-shrink: 0;
+flex-basis: 250px;
+```
+
+## 11. Grid
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* Meregangkan item */
+.lebar { grid-column: span 2; }
+.tinggi { grid-row: span 2; }
+
+/* Layout bernama */
+.halaman {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+}
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+```
+
+## Ringkasan cepat
+
+| Kategori | Yang termasuk |
+|---|---|
+| Struktur | `DOCTYPE`, `html`, `head`, `body`, `title` |
+| Meta | `charset`, `viewport`, `description`, `theme-color`, `og:title`, `link rel="icon"` |
+| Teks/media | `h1`–`h6`, `p`, `a`, `img`, `br`, `input` |
+| Daftar | `ul`, `ol`, `li`, `dl`, `dt`, `dd` |
+| Tabel | `table`, `tr`, `th`, `td`, `caption`, `thead`, `tbody`, `tfoot`, `scope` |
+| Semantik | `header`, `nav`, `main`, `footer`, `article`, `section`, `aside`, `details`, `summary`, `div`, `span` |
+| CSS dasar | selector, `padding`, `border`, `margin`, `box-sizing`, `display`, satuan, variabel CSS |
+| Flexbox | `display: flex`, `justify-content`, `align-items`, `flex-direction`, `flex` |
+| Grid | `display: grid`, `fr`, `repeat`, `minmax`, `auto-fit`/`auto-fill`, `span`, `grid-template-areas`, `grid-area` |
+
+Kalau mau, daftar ini bisa saya jadikan file Markdown atau PDF untuk cheat sheet, atau saya lengkapi dengan contoh halaman HTML+CSS utuh yang memakai semua elemen di atas.
